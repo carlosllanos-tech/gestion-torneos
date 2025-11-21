@@ -1,18 +1,2 @@
 
-<p>{{ title }}</p>
-
-<p *ngIf="isLogged" >Bienvenido usuario</p>
-
-<li *ngFor="let n of nombres">
-  {{ n }}
-</li>
-
-
-<div [ngSwitch]="rol">
-  <p *ngSwitchCase="'admin'">Eres Admin</p>
-  <p *ngSwitchCase="'user'">Eres usuario</p>
-  <p *ngSwitchDefault>No tienes rol</p>
-</div>
-
-
 <router-outlet />

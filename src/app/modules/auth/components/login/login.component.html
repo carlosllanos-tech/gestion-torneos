@@ -1,0 +1,80 @@
+<div class="container">
+    <div class="row justify-content-center align-items-center min-vh-100">
+        <div class="col-md-5">
+            <div class="card shadow">
+                <div class="card-body p-5">
+                    <!-- Logo o título -->
+                    <div class="text-center mb-4">
+                        <h2 class="fw-bold text-primary">Gestión de Torneos</h2>
+                        <p class="text-muted">Inicia sesión para continuar</p>
+                    </div>
+
+                    <!-- Formulario de login -->
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+                        <!-- Campo Email -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">
+                                Correo Electrónico <span class="text-danger">*</span>
+                            </label>
+                            <input type="email" class="form-control" [class.is-invalid]="isFieldInvalid('email')"
+                                id="email" formControlName="email" placeholder="ejemplo@correo.com"
+                                autocomplete="email">
+
+                            <!-- Mensaje de error -->
+                            <div class="invalid-feedback" *ngIf="isFieldInvalid('email')">
+                                {{ getErrorMessage('email') }}
+                            </div>
+                        </div>
+
+                        <!-- Campo Password -->
+                        <div class="mb-3">
+                            <label for="password" class="form-label">
+                                Contraseña <span class="text-danger">*</span>
+                            </label>
+                            <input type="password" class="form-control" [class.is-invalid]="isFieldInvalid('password')"
+                                id="password" formControlName="password" placeholder="••••••••"
+                                autocomplete="current-password">
+
+                            <!-- Mensaje de error -->
+                            <div class="invalid-feedback" *ngIf="isFieldInvalid('password')">
+                                {{ getErrorMessage('password') }}
+                            </div>
+                        </div>
+
+                        <!-- Botón de envío -->
+                        <div class="d-grid gap-2 mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg" [disabled]="loading">
+
+                                <!-- Spinner de carga -->
+                                <span class="spinner-border spinner-border-sm me-2" *ngIf="loading" role="status"
+                                    aria-hidden="true">
+                                </span>
+
+                                <!-- Texto del botón -->
+                                <span *ngIf="!loading">Iniciar Sesión</span>
+                                <span *ngIf="loading">Iniciando sesión...</span>
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Información adicional -->
+                    <div class="mt-4 text-center">
+                        <small class="text-muted">
+                            Usuarios de prueba:<br>
+                            <strong>admin&#64;torneo.com</strong> / Admin123!<br>
+                            <strong>organizador1&#64;torneo.com</strong> / Org123! 
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="text-center mt-3">
+                <small class="text-muted">
+                    © 2025 Sistema de Gestión de Torneos Deportivos
+                </small>
+            </div>
+        </div>
+    </div>
+</div>

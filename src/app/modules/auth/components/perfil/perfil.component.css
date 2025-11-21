@@ -1,0 +1,69 @@
+/* Avatar circular con iniciales */
+.avatar-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0 auto;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* Card con sombra suave */
+.card {
+    border: none;
+    border-radius: 15px;
+}
+
+/* Header del card */
+.card-header {
+    border-radius: 15px 15px 0 0 !important;
+}
+
+/* Labels con color */
+.form-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+/* Badges personalizados */
+.badge {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+/* Botones con hover */
+.btn {
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Alert personalizado */
+.alert-info {
+    border-left: 4px solid #0dcaf0;
+}
+
+/* Iconos Bootstrap Icons */
+.bi {
+    font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .avatar-circle {
+        width: 100px;
+        height: 100px;
+        font-size: 2.5rem;
+    }
+}

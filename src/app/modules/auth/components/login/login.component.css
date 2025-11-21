@@ -1,0 +1,35 @@
+/* Fondo con gradiente */
+.container {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+/* Card con sombra */
+.card {
+    border: none;
+    border-radius: 15px;
+}
+
+/* Botón con efecto hover */
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    transition: transform 0.2s;
+}
+
+.btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Animación del spinner */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
