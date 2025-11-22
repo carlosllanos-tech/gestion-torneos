@@ -1,0 +1,95 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" *ngIf="isAuthenticated">
+    <div class="container-fluid">
+        <!-- Logo/Título -->
+        <a class="navbar-brand" routerLink="/dashboard">
+            ⚽ Gestión Torneos
+        </a>
+
+        <!-- Toggle para móvil -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menú -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+
+                <!-- Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">
+                        Dashboard
+                    </a>
+                </li>
+
+                <!-- Usuarios (solo admin) -->
+                <li class="nav-item" *ngIf="hasRole(['admin'])">
+                    <a class="nav-link" routerLink="/dashboard/usuarios" routerLinkActive="active">
+                        Usuarios
+                    </a>
+                </li>
+
+                <!-- Torneos -->
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/dashboard/torneos" routerLinkActive="active">
+                        Torneos
+                    </a>
+                </li>
+
+                <!-- Equipos -->
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/dashboard/equipos" routerLinkActive="active">
+                        Equipos
+                    </a>
+                </li>
+
+                <!-- Jugadores -->
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/dashboard/jugadores" routerLinkActive="active">
+                        Jugadores
+                    </a>
+                </li>
+
+                <!-- Partidos -->
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/dashboard/partidos" routerLinkActive="active">
+                        Partidos
+                    </a>
+                </li>
+
+                <!-- Reportes -->
+                <li class="nav-item" *ngIf="isAuthenticated">
+                    <a class="nav-link" routerLink="/dashboard/reportes" routerLinkActive="active">
+                        Reportes
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Usuario -->
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        {{ usuario?.nombre }}
+                        <span class="badge bg-light text-primary ms-2">{{ usuario?.rol?.nombre }}</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li>
+                            <a class="dropdown-item" routerLink="/auth/perfil">
+                                Mi Perfil
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item text-danger" href="#" (click)="logout(); $event.preventDefault()">
+                                Cerrar Sesión
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Reemplaza el contenido de rutas hijo -->
+<router-outlet />
